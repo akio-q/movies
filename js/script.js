@@ -20,3 +20,13 @@ for (let i = 0; i < 2; i++) {
         i--;
     }
 }
+
+if (personalMovieDB.count <= 10) {
+    alert('You watched quite a bit films');
+} else if (personalMovieDB.count < 30) {
+    alert('You are typical viewer');
+} else if (personalMovieDB.count >= 30) {
+    alert('You are a true cinephile!');
+} else {
+    alert('Error');
+}
