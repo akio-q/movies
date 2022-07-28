@@ -10,10 +10,13 @@ const personalMovieDB = {
     privat: false
 };
 
-const a = prompt('One of the last movies you watched?', ''),
-      b = prompt('How much would you rate it?', ''),
-      c = prompt('One of the last movies you watched?', ''),
-      d = prompt('How much would you rate it?', '');
+for (let i = 0; i < 2; i++) {
+    const a = prompt('One of the last movies you watched?', ''),
+          b = prompt('How much would you rate it?', '');
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+    } else {
+        i--;
+    }
+}
