@@ -55,20 +55,20 @@ const personalMovieDB = {
     },
 
     writeYourGenres() {
-        for (let i = 1; i <= 3; i++) {
-            let genre = prompt(`Your favorite genre at number ${i}`);
+        for (let i = 1; i < 2; i++) {
+            let genres = prompt(`Enter your favorite genres separated by commas`).toLowerCase();
 
-            if (genre === '' || genre == null) {
+            if (genres === '' || genres == null) {
                 console.log('You entered incorrect data or did not enter anything at all');
 
                 i--;
             } else {
-                personalMovieDB.genres[i - 1] = genre;
+                personalMovieDB.genres = genres.split(', ');
             }
         }
 
         personalMovieDB.genres.forEach((item, i) => {
-            console.log(`Favorite genre ${i + 1} is ${item}`);
+            console.log(`Favorite genres ${i + 1} is ${item}`);
         });
     }
 };
