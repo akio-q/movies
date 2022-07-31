@@ -10,7 +10,7 @@ const personalMovieDB = {
     start() {
         personalMovieDB.count = +prompt('How many movies have you watched already?', '').trim();
     
-        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+        while (personalMovieDB.count == '' || personalMovieDB.count == null ||  isNaN(personalMovieDB.count)) {
             personalMovieDB.count = +prompt('How many movies have you watched already?', '');
         }
     },
@@ -56,14 +56,26 @@ const personalMovieDB = {
 
     writeYourGenres() {
         for (let i = 1; i <= 3; i++) {
-            personalMovieDB.genres[i - 1] = prompt(`Your favorite genre at number ${i}`).trim();
+            let genre = prompt(`Your favorite genre at number ${i}`);
+
+            if (genre === '' || genre == null) {
+                console.log('You entered incorrect data or did not enter anything at all');
+
+                i--;
+            } else {
+                personalMovieDB.genres[i - 1] = genre;
+            }
         }
+
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Favorite genre ${i + 1} is ${item}`);
+        });
     }
 };
 
-// personalMovieDB.toggleVisibleMyDB();
 // personalMovieDB.start();
 // personalMovieDB.rememberMyFilms();
 // personalMovieDB.detectPersonalLevel();
+// personalMovieDB.toggleVisibleMyDB();
 // personalMovieDB.showMyDB(personalMovieDB.privat);
 // personalMovieDB.writeYourGenres();
