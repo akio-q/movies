@@ -46,6 +46,14 @@ const personalMovieDB = {
         }
     },
 
+    toggleVisibleMyDB() {
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
+        }
+    },
+
     writeYourGenres() {
         for (let i = 1; i <= 3; i++) {
             personalMovieDB.genres[i - 1] = prompt(`Your favorite genre at number ${i}`).trim();
@@ -53,8 +61,9 @@ const personalMovieDB = {
     }
 };
 
-personalMovieDB.start();
-personalMovieDB.rememberMyFilms();
-personalMovieDB.detectPersonalLevel();
-personalMovieDB.showMyDB(personalMovieDB.privat);
-personalMovieDB.writeYourGenres();
+// personalMovieDB.toggleVisibleMyDB();
+// personalMovieDB.start();
+// personalMovieDB.rememberMyFilms();
+// personalMovieDB.detectPersonalLevel();
+// personalMovieDB.showMyDB(personalMovieDB.privat);
+// personalMovieDB.writeYourGenres();
